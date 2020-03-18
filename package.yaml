@@ -101,3 +101,19 @@ executables:
     dependencies:
     - concur-replica
     - text
+  concur-replica-counter:
+    main: Main.hs
+    source-dirs: examples/Counter
+    dependencies:
+    - concur-replica
+    - text
+  concur-replica-network:
+    main: Main.hs
+    source-dirs: examples/Network
+    dependencies:
+    - concur-replica
+    - text
+    - connection
+    - bytestring
+    - data-default
+    - http-client

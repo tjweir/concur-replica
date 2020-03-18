@@ -2,14 +2,14 @@
 
 module Main where
 
-import qualified Data.Text              as T
+import qualified Data.Text      as T
 
-import           Control.Monad (forever)
+import           Control.Monad  (forever)
 
 import           Concur.Core
 import           Concur.Replica hiding (a, b, i)
 
-import           Prelude hiding (div)
+import           Prelude        hiding (div)
 
 -- Demonstration of how easy it is to build a simple generic menu widget
 -- 1. This uses no state, as it was easy to build this using monadic flow

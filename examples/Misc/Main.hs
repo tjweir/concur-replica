@@ -1,24 +1,24 @@
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TupleSections     #-}
 
 module Main where
 
-import           Data.Maybe (mapMaybe)
-import qualified Data.Text as T
+import           Data.Maybe             (mapMaybe)
+import qualified Data.Text              as T
 
+import           Concur.Core            (Widget, orr)
+import           Concur.Replica         hiding (i)
 import           Control.Exception
 import           Control.Monad.IO.Class
-import           Concur.Core (Widget, orr)
-import           Concur.Replica hiding (i)
 
-import qualified Prelude as P
-import           Prelude hiding (div)
+import           Prelude                hiding (div)
+import qualified Prelude                as P
 
 data Todo = Todo
   { todoValue :: T.Text
-  , todoDone :: Bool
-  , todoId :: Int
+  , todoDone  :: Bool
+  , todoId    :: Int
   } deriving Show
 
 inputOnEnter :: T.Text -> Widget HTML T.Text
@@ -68,8 +68,8 @@ todos = go 0 "" []
         , Three3 <$> todoList filter' vs
         ]
       case ev of
-        One3 e    -> go (vid + 1) filter' (Todo e False vid:vs)
-        Two3 e    -> go vid (targetValue $ target e) vs
+        One3 e     -> go (vid + 1) filter' (Todo e False vid:vs)
+        Two3 e     -> go vid (targetValue $ target e) vs
         Three3 vs' -> go vid filter' vs'
 
 --------------------------------------------------------------------------------
